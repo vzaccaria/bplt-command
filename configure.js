@@ -25,11 +25,6 @@ generateProject(_ => {
     })
     _.cmd("((echo '#!/usr/bin/env node') && cat ./lib/index.js) > index.js", "./lib/index.js")
     _.cmd("chmod +x ./index.js")
-    _.cmd("make test")
-  })
-
-  _.collect("test", _ => {
-    _.cmd("cd checkout-tst && ../index.js co 'https://github.com/vzaccaria/bplt.git' -n 'pippo'")
   })
 
   _.collect("up", _ => {

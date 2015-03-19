@@ -4,6 +4,7 @@ var {
 } = require('docopt')
 var promise = require('bluebird')
 var _ = require('lodash')
+var fs = require('fs')
 
 var getOption = (a, b, def, o) => {
   if (_.isString(o[a])) {

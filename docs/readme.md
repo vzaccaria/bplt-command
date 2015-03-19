@@ -17,7 +17,7 @@
 
 ## License
 {%= copyright() %}
-{%= license() %}
+Released under the BSD License.
 
 ***
 
