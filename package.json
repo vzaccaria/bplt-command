@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "No name given yet",
   "main": "index.js",
+  "bin": {
+      "{{name}}": "./index.js"
+  },
   "scripts": {},
   "repository": {
     "type": "git",
