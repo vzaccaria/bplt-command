@@ -12,7 +12,8 @@ function exec(cmd) {
   "use strict"
   return new promise((resolve, reject) => {
     require('shelljs').exec(cmd, {
-      async: true
+      async: true,
+      silent: true
     }, (code, output) => {
       if (code !== 0) {
         reject(output)
