@@ -1,8 +1,6 @@
-var shelljs = require('shelljs')
 var {
   docopt
 } = require('docopt')
-var promise = require('bluebird')
 var _ = require('lodash')
 var fs = require('fs')
 
@@ -22,6 +20,7 @@ var getOption = (a, b, def, o) => {
 
 
 var getOptions = doc => {
+  "use strict"
   var o = docopt(doc)
   var help = getOption('-h', '--help', false, o)
   return {
@@ -32,6 +31,7 @@ var getOptions = doc => {
 var doc = fs.readFileSync(__dirname + "/docs/usage.md", 'utf8')
 
 var main = () => {
+  "use strict"
   var {
     help
   } = (getOptions(doc))

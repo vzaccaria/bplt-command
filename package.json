@@ -4,7 +4,7 @@
   "description": "No name given yet",
   "main": "index.js",
   "bin": {
-      "{{name}}": "./index.js"
+    "{{name}}": "./index.js"
   },
   "man": "./man/doc.1",
   "scripts": {},
@@ -26,7 +26,11 @@
   "devDependencies": {
     "diy-build": "^1.0.8",
     "babel": "^4.7.16",
+    "shelljs": "*",
     "xyz": "*",
+    "mocha": "*",
+    "chai": "*",
+    "chai-as-promised": "*",
     "verb": "*",
     "verb-cli": "*"
   }

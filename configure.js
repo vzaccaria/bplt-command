@@ -9,13 +9,13 @@ generateProject(_ => {
   _.babel = (dir, ...deps) => {
     var command = (_) => `./node_modules/.bin/babel ${_.source} -o ${_.product}`
     var product = (_) => `./lib/${path.basename(_.source)}`
-    _.compileFiles(...([ command, product, dir ].concat(deps)))
+    _.compileFiles(...([command, product, dir].concat(deps)))
   }
 
   _.verb = (verbfile, deps) => {
     var command = (_) => `./node_modules/.bin/verb`
     var product = (_) => `./readme.md`
-    _.compileFiles(...([ command, product, verbfile ].concat(deps)))
+    _.compileFiles(...([command, product, verbfile].concat(deps)))
   }
 
   _.collectSeq("all", _ => {
@@ -27,6 +27,11 @@ generateProject(_ => {
     })
     _.cmd("((echo '#!/usr/bin/env node') && cat ./lib/index.js) > index.js", "./lib/index.js")
     _.cmd("chmod +x ./index.js")
+  })
+
+  _.collect("test", _ => {
+    _.cmd("make all")
+    _.cmd("./node_modules/.bin/mocha ./lib/test.js")
   })
 
   _.collect("update", _ => {
