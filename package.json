@@ -33,7 +33,7 @@
     "mocha": "*",
     "chai": "*",
     "chai-as-promised": "*",
-    "verb": "*",
-    "verb-cli": "*"
+	  "mustache": "~2.1.2",
+	  "stupid-replace": "~0.0.3"
   }
 }

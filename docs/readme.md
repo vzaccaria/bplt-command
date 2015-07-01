@@ -1,24 +1,25 @@
-# {%= name %} {%= badge("fury") %}
+# {{name}}
+> {{description}}
 
+## Install
 
-{%= include("install-global") %}
+Install it with
 
+```
+npm install {{name}}
+```
 ## Usage
 
 ```
-{%= partial("usage.md") %}
+~USAGE~
 ```
-
-{%= partial("description.md") %}
 
 ## Author
 
 * Vittorio Zaccaria
 
 ## License
-{%= copyright() %}
 Released under the BSD License.
 
 ***
 
-{%= include("footer") %}

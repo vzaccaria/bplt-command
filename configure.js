@@ -12,16 +12,14 @@ generateProject(_ => {
     _.compileFiles(...([command, product, dir].concat(deps)))
   }
 
-  _.verb = (verbfile, deps) => {
-    var command = (_) => `./node_modules/.bin/verb`
-    var product = (_) => `./readme.md`
-    _.compileFiles(...([command, product, verbfile].concat(deps)))
-  }
+
+	_.collect("docs", _ => {
+                _.cmd("./node_modules/.bin/mustache package.json docs/readme.md | ./node_modules/.bin/stupid-replace '~USAGE~' -f docs/usage.md > readme.md")
+        })
 
   _.collectSeq("all", _ => {
     _.collect("build", _ => {
       _.babel("src/*.js")
-      _.verb("./verbfile.js", "docs/*.md")
       _.cmd("mkdir -p ./man")
       _.cmd("pandoc -s -f markdown -t man readme.md > ./man/{{name}}.1")
     })
