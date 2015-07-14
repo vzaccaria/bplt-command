@@ -34,6 +34,7 @@
     "chai": "*",
     "chai-as-promised": "*",
 	  "mustache": "~2.1.2",
-	  "stupid-replace": "~0.0.3"
+	  "stupid-replace": "~0.0.3",
+	  "git-hist": "*"
   }
 }
