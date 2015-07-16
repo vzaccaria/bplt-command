@@ -6,7 +6,7 @@
   "bin": {
     "{{name}}": "./index.js"
   },
-  "man": "./man/doc.1",
+  "man": "./man/man1/{{name}}.1",
   "scripts": {
     "test": "make test"
     },
