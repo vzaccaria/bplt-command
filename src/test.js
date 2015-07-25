@@ -1,8 +1,13 @@
+/*eslint quotes: [0] */
+
 var chai = require('chai')
 chai.use(require('chai-as-promised'))
 var should = chai.should()
-var promise = require('bluebird')
-var fs = require('fs');
+
+var z		= require('zaccaria-cli')
+var promise = z.$b
+var fs		= z.$fs
+
 /**
  * Promised version of shelljs exec
  * @param  {string} cmd The command to be executed

@@ -1,40 +1,26 @@
+/* eslint quotes: [0], strict: [0] */
 var {
-  docopt
-} = require('docopt')
-var _ = require('lodash')
-var fs = require('fs')
-
-var getOption = (a, b, def, o) => {
-  "use strict"
-  if (!_.isUndefined(o[a])) {
-    return o[a]
-  } else {
-    if (!_.isUndefined(o[b])) {
-      return o[b]
-    } else {
-      return def
-    }
-  }
-}
-
-
+    $d, getOption, $f
+} = require('zaccaria-cli')
 
 var getOptions = doc => {
-  "use strict"
-  var o = docopt(doc)
-  var help = getOption('-h', '--help', false, o)
-  return {
-    help
-  }
+    "use strict"
+    var o = $d(doc)
+    var help = getOption('-h', '--help', false, o)
+    return {
+        help
+    }
 }
 
-var doc = fs.readFileSync(__dirname + "/docs/usage.md", 'utf8')
-
 var main = () => {
-  "use strict"
-  var {
-    help
-  } = (getOptions(doc))
+    $f.readLocal('docs/usage.md').then(it => {
+        var {
+            help
+        } = getOptions(it);
+        if (help) {
+            console.log(it)
+        }
+    })
 }
 
 main()
