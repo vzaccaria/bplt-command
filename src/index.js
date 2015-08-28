@@ -1,12 +1,12 @@
 /* eslint quotes: [0], strict: [0] */
 var {
-    $d, getOption, $f
+    $d, $o, $f
 } = require('zaccaria-cli')
 
 var getOptions = doc => {
     "use strict"
     var o = $d(doc)
-    var help = getOption('-h', '--help', false, o)
+    var help = $o('-h', '--help', false, o)
     return {
         help
     }
