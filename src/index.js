@@ -1,6 +1,7 @@
 /* eslint quotes: [0], strict: [0] */
 var {
     $d, $o, $f
+    // $r.stdin() to read from stdin
 } = require('zaccaria-cli')
 
 var getOptions = doc => {
