@@ -18,13 +18,13 @@ generateProject(_ => {
         _.cmd("./node_modules/.bin/mustache package.json docs/readme.md | ./node_modules/.bin/stupid-replace '~USAGE~' -f docs/usage.md > readme.md")
         _.cmd("cat history.md >> readme.md")
         _.cmd("mkdir -p ./man/man1")
-        _.cmd("pandoc -s -f markdown -t man readme.md > ./man/man1/{{name}}.1")
+        _.cmd("pandoc -s -f markdown -t man readme.md > ./man/man1/vz-dockerino.1")
         _.cmd("-hub cm 'update docs and history.md'")
     })
 
     _.collectSeq("all", _ => {
         _.collect("build", _ => {
-            _.babel("src/*.js")
+            _.cmd("./node_modules/.bin/babel src -d lib --presets es2015,stage-2")
         })
         _.cmd("((echo '#!/usr/bin/env node') && cat ./lib/index.js) > index.js", "./lib/index.js")
         _.cmd("chmod +x ./index.js")
@@ -36,7 +36,7 @@ generateProject(_ => {
     })
 
     _.collect("update", _ => {
-        _.cmd("make clean && ./node_modules/.bin/babel configure.js | node")
+        _.cmd("make clean && ./node_modules/.bin/babel --presets es2015,stage-2 configure.js | node")
     });
 
     ["major", "minor", "patch"].map(it => {
